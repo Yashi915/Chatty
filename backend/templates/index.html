@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket FAQ</title>
+  </head>
+  <body>
+    <h1>WebSocket FAQ</h1>
+    <input type="text" id="questionInput" placeholder="Ask a question..." />
+    <button onclick="askQuestion()">Ask</button>
+    <div id="answer"></div>
+
+    <script>
+      const socket = new WebSocket("ws://localhost:8000/ws");
+
+      socket.onmessage = function (event) {
+        const data = JSON.parse(event.data);
+        document.getElementById("answer").innerText =
+          "Answer: " + data.answer + "\nScore: " + data.score;
+      };
+
+      function askQuestion() {
+        const questionInput = document.getElementById("questionInput");
+        const question = questionInput.value;
+        socket.send(question);
+      }
+    </script>
+  </body>
+</html>
