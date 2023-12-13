@@ -222,14 +222,14 @@ const styles = StyleSheet.create({
   headingText: {
     fontSize: 18,
     lineHeight: 18,
-    fontFamily: "SpaceMono",
+
     color: "white",
     fontWeight: "700",
   },
   subHeadingText: {
     fontSize: 14,
     lineHeight: 18,
-    fontFamily: "SpaceMono",
+
     color: "white",
   },
   container: {
