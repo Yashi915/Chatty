@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View, Platform, Image } from "react-native";
+import { StyleSheet, Text, View, Platform, Image, TouchableOpacity } from "react-native";
 import { GiftedChat, Message } from "react-native-gifted-chat";
 import RelatedQustion from "../../components/RelatedQustion";
 import { chat } from "../../store/chat";
 import { Observer } from "mobx-react-lite";
+import Header from "../../components/Header";
 
 const ChatHeader = () => (
   <View style={styles.header}>
@@ -21,28 +22,32 @@ const ChatHeader = () => (
 
 export default function ChatScreen() {
   return (
-    <View style={styles.container}>
-      <ChatHeader />
+    <>
+      <Header />
 
-      <Observer>
-        {() => (
-          <GiftedChat
-            messages={chat.messages}
-            onSend={(messages) => chat.send(messages)}
-            renderMessage={(props) => {
-              if (props?.currentMessage?.messageType === "Related Question") {
-                return <RelatedQustion {...props} />;
-              }
+      <View style={styles.container}>
+        <ChatHeader />
 
-              return <Message {...props} />;
-            }}
-            user={{
-              _id: 1,
-            }}
-          />
-        )}
-      </Observer>
-    </View>
+        <Observer>
+          {() => (
+            <GiftedChat
+              messages={chat.messages}
+              onSend={(messages) => chat.send(messages)}
+              renderMessage={(props) => {
+                if (props?.currentMessage?.messageType === "Related Question") {
+                  return <RelatedQustion {...props} />;
+                }
+
+                return <Message {...props} />;
+              }}
+              user={{
+                _id: 1,
+              }}
+            />
+          )}
+        </Observer>
+      </View>
+    </>
   );
 }
 

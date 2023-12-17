@@ -36,6 +36,7 @@ function RootLayoutNav() {
   return (
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="create_document" options={{ headerTitle: "Create Documents" }} />
     </Stack>
   );
 }
