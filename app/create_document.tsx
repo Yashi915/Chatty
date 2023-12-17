@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Button from "../components/native/Button";
 import Toast from "react-native-toast-message";
+import { modal } from "../store/modal";
 
 const certificateList = [
   {
@@ -35,11 +36,12 @@ const AccordionItem = ({ title, content }: { title: string; content: any }) => {
                 title="Create"
                 text={{ style: { fontSize: 14, fontWeight: "bold" } }}
                 onPress={() => {
-                  Toast.show({
-                    type: "info",
-                    text1: "Warning!",
-                    text2: "yet to be implemented 👋",
-                  });
+                  modal.showModal();
+                  // Toast.show({
+                  //   type: "info",
+                  //   text1: "Warning!",
+                  //   text2: "yet to be implemented 👋",
+                  // });
                 }}
               />
             </View>

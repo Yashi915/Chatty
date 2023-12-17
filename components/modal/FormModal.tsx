@@ -4,32 +4,38 @@ import Button from "../native/Button";
 import { Entypo } from "@expo/vector-icons";
 import Colors from "../../constants/Colors";
 import TextInput from "../native/TextInput";
+import { modal } from "../../store/modal";
+import { Observer } from "mobx-react-lite";
 
 export const FormModal = () => {
   return (
-    <Modal visible={true} transparent>
-      <View style={styles.opacity}>
-        <View style={styles.container}>
-          <ScrollView contentContainerStyle={{ padding: 40, gap: 40 }}>
-            <View style={styles.modalHeader}>
-              <Text style={styles.heading}>Certificate of Advocate</Text>
+    <Observer>
+      {() => (
+        <Modal visible={modal.shown} transparent>
+          <View style={styles.opacity}>
+            <View style={styles.container}>
+              <ScrollView contentContainerStyle={{ padding: 40, gap: 40 }}>
+                <View style={styles.modalHeader}>
+                  <Text style={styles.heading}>Certificate of Advocate</Text>
 
-              <Entypo name="cross" size={32} color="black" />
+                  <Entypo onPress={() => modal.closeModal()} name="cross" size={32} color="black" />
+                </View>
+
+                <View style={{ flexDirection: "row", alignItems: "center", gap: 40 }}>
+                  <Text style={styles.label}>Name of Advocate</Text>
+
+                  <TextInput placeholder="Please fill advocate name" />
+                </View>
+              </ScrollView>
+
+              <View style={styles.footer}>
+                <Button title="Preview / Print" style={{ height: 50 }} />
+              </View>
             </View>
-
-            <View style={{ flexDirection: "row", alignItems: "center", gap: 40 }}>
-              <Text style={styles.label}>Name of Advocate</Text>
-
-              <TextInput placeholder="Please fill advocate name" />
-            </View>
-          </ScrollView>
-
-          <View style={styles.footer}>
-            <Button title="Preview / Print" style={{ height: 50 }} />
           </View>
-        </View>
-      </View>
-    </Modal>
+        </Modal>
+      )}
+    </Observer>
   );
 };
 
