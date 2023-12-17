@@ -1,4 +1,4 @@
-export const savePDFToFile = (pdfBytes: Blob, fileName: string) => {
+export const savePDFToFile = (pdfBytes: Uint8Array, fileName: string) => {
   const blob = new Blob([pdfBytes], { type: "application/pdf" });
 
   const link = document.createElement("a");

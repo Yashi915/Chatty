@@ -6,8 +6,39 @@ import Colors from "../../constants/Colors";
 import TextInput from "../native/TextInput";
 import { modal } from "../../store/modal";
 import { Observer } from "mobx-react-lite";
+import { PDFDocument } from "pdf-lib";
+import { savePDFToFile } from "../../utils/savePDFToFile";
+import Toast from "react-native-toast-message";
+
+import { Asset } from "expo-asset";
 
 export const FormModal = () => {
+  async function fillForm() {
+    const asset = Asset.fromModule(
+      require("../../assets/pdf/certificates/certificate_of_advocate.pdf")
+    );
+
+    const formUrl = asset.uri;
+    const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
+
+    const pdfDoc = await PDFDocument.load(formPdfBytes);
+
+    const form = pdfDoc.getForm();
+
+    const nameField = form.getTextField("org_name");
+
+    nameField.setText("Mario");
+
+    const pdfBytes = await pdfDoc.save();
+
+    savePDFToFile(pdfBytes, "hello.pdf");
+
+    Toast.show({
+      type: "info",
+      text1: "PDF form filled successfully!",
+    });
+  }
+
   return (
     <Observer>
       {() => (
@@ -29,7 +60,7 @@ export const FormModal = () => {
               </ScrollView>
 
               <View style={styles.footer}>
-                <Button title="Preview / Print" style={{ height: 50 }} />
+                <Button onPress={() => fillForm()} title="Preview / Print" style={{ height: 50 }} />
               </View>
             </View>
           </View>
