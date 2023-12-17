@@ -35,7 +35,6 @@ const AccordionItem = ({ title, content }: { title: string; content: any }) => {
                 title="Create"
                 text={{ style: { fontSize: 14, fontWeight: "bold" } }}
                 onPress={() => {
-                  console.log("helo");
                   Toast.show({
                     type: "info",
                     text1: "Warning!",
