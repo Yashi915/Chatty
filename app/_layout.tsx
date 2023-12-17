@@ -1,6 +1,7 @@
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
+import Toast from "react-native-toast-message";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -34,9 +35,13 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="create_document" options={{ headerTitle: "Create Documents" }} />
-    </Stack>
+    <>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="create_document" options={{ headerTitle: "Create Documents" }} />
+      </Stack>
+
+      <Toast />
+    </>
   );
 }
