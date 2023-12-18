@@ -49,6 +49,7 @@ export const FormModal = () => {
     formatNameObject[item?.formatName] = "";
   });
 
+  console.log("for", formatNameObject);
   return (
     <Observer>
       {() => (
