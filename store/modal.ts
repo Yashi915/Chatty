@@ -6,11 +6,15 @@ class Modal {
   shown: boolean = false;
   modalType: ModalType = "ADVOCATE";
 
+  formData: any = null;
+
   constructor() {
     makeObservable(this, {
       shown: observable,
+      formData: observable,
       showModal: action,
       closeModal: action,
+      setFormData: action,
     });
   }
 
@@ -20,6 +24,10 @@ class Modal {
 
   closeModal() {
     this.shown = false;
+  }
+
+  setFormData(formData: any) {
+    this.formData = formData;
   }
 }
 

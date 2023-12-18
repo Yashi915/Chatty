@@ -8,12 +8,55 @@ const certificateList = [
   {
     name: "Certificate of an Advocate",
     path: require("../assets/pdf/certificates/certificate_of_advocate.pdf"),
+    field: [
+      {
+        name: "Trust/ Society/ Company",
+        formatName: "org_name",
+      },
+      {
+        name: "Name and address of the Applicant",
+        formatName: "name_and_address",
+      },
+      {
+        name: "Registration Certicate No.",
+        formatName: "reg_cert_no",
+      },
+      {
+        name: "Date of Registration",
+        formatName: "date",
+      },
+    ],
   },
   {
     name: "Certificate of an some otehr",
     path: require("../assets/pdf/certificates/certificate_of_advocate.pdf"),
   },
 ];
+
+const AccordionExpancedItem = ({ content }: any) => {
+  return (
+    <>
+      {content.map((item: { name: string; path: string }) => {
+        return (
+          <View
+            key={`acc-item-${name}`}
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <Text style={styles.content}>{item?.name}</Text>
+            <Button
+              title="Create"
+              text={{ style: { fontSize: 14, fontWeight: "bold" } }}
+              onPress={() => {
+                modal.setFormData(item);
+                modal.showModal();
+              }}
+            />
+          </View>
+        );
+      })}
+    </>
+  );
+};
 
 const AccordionItem = ({ title, content }: { title: string; content: any }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -27,26 +70,7 @@ const AccordionItem = ({ title, content }: { title: string; content: any }) => {
       <TouchableOpacity style={styles.header} onPress={toggleAccordion}>
         <Text style={styles.title}>{title}</Text>
       </TouchableOpacity>
-      {isExpanded &&
-        content.map((item: { name: string; path: string }) => {
-          return (
-            <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-              <Text style={styles.content}>{item?.name}</Text>
-              <Button
-                title="Create"
-                text={{ style: { fontSize: 14, fontWeight: "bold" } }}
-                onPress={() => {
-                  modal.showModal();
-                  // Toast.show({
-                  //   type: "info",
-                  //   text1: "Warning!",
-                  //   text2: "yet to be implemented 👋",
-                  // });
-                }}
-              />
-            </View>
-          );
-        })}
+      {isExpanded && <AccordionExpancedItem content={content} />}
     </View>
   );
 };

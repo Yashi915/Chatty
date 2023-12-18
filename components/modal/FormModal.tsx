@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { View, Text, Modal, StyleSheet, ScrollView } from "react-native";
 import Button from "../native/Button";
 import { Entypo } from "@expo/vector-icons";
@@ -9,14 +9,16 @@ import { Observer } from "mobx-react-lite";
 import { PDFDocument } from "pdf-lib";
 import { savePDFToFile } from "../../utils/savePDFToFile";
 import Toast from "react-native-toast-message";
-
 import { Asset } from "expo-asset";
+import { Formik, FormikProps } from "formik";
+
+type FormikRef = React.RefObject<FormikProps<{}>>;
 
 export const FormModal = () => {
-  async function fillForm() {
-    const asset = Asset.fromModule(
-      require("../../assets/pdf/certificates/certificate_of_advocate.pdf")
-    );
+  const ref: FormikRef = useRef(null);
+
+  async function fillForm(values: any) {
+    const asset = Asset.fromModule(modal?.formData?.path);
 
     const formUrl = asset.uri;
     const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
@@ -25,19 +27,27 @@ export const FormModal = () => {
 
     const form = pdfDoc.getForm();
 
-    const nameField = form.getTextField("org_name");
-
-    nameField.setText("Mario");
+    for (const key in values) {
+      if (values.hasOwnProperty(key)) {
+        const value = values[key];
+        form.getTextField(key).setText(value);
+      }
+    }
 
     const pdfBytes = await pdfDoc.save();
 
-    savePDFToFile(pdfBytes, "hello.pdf");
+    savePDFToFile(pdfBytes, modal?.formData?.name);
 
     Toast.show({
       type: "info",
       text1: "PDF form filled successfully!",
     });
   }
+
+  const formatNameObject: any = {};
+  modal?.formData?.field.forEach((item: any) => {
+    formatNameObject[item?.formatName] = "";
+  });
 
   return (
     <Observer>
@@ -47,20 +57,48 @@ export const FormModal = () => {
             <View style={styles.container}>
               <ScrollView contentContainerStyle={{ padding: 40, gap: 40 }}>
                 <View style={styles.modalHeader}>
-                  <Text style={styles.heading}>Certificate of Advocate</Text>
+                  <Text style={styles.heading}>{modal?.formData?.name}</Text>
 
                   <Entypo onPress={() => modal.closeModal()} name="cross" size={32} color="black" />
                 </View>
 
-                <View style={{ flexDirection: "row", alignItems: "center", gap: 40 }}>
-                  <Text style={styles.label}>Name of Advocate</Text>
+                <Formik
+                  innerRef={ref}
+                  initialValues={formatNameObject}
+                  onSubmit={(values, formikActions) => {
+                    fillForm(values);
+                  }}
+                >
+                  {(props) => (
+                    <View style={{ gap: 20 }}>
+                      {modal?.formData?.field.map((item: any) => {
+                        return (
+                          <View
+                            key={`feildName-${item?.name}-${modal?.formData?.name}`}
+                            style={{ flexDirection: "row", alignItems: "center", gap: 40 }}
+                          >
+                            <Text style={styles.label}>{item?.name}</Text>
 
-                  <TextInput placeholder="Please fill advocate name" />
-                </View>
+                            <TextInput
+                              onChangeText={props.handleChange(`${item?.formatName}`)}
+                              value={props.values[item?.formatName]}
+                            />
+                          </View>
+                        );
+                      })}
+                    </View>
+                  )}
+                </Formik>
               </ScrollView>
 
               <View style={styles.footer}>
-                <Button onPress={() => fillForm()} title="Preview / Print" style={{ height: 50 }} />
+                <Button
+                  onPress={() => {
+                    ref.current?.submitForm();
+                  }}
+                  title="Preview / Print"
+                  style={{ height: 50 }}
+                />
               </View>
             </View>
           </View>

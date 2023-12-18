@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Platform, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Platform, Image } from "react-native";
 import { GiftedChat, Message } from "react-native-gifted-chat";
 import RelatedQustion from "../../components/RelatedQustion";
 import { chat } from "../../store/chat";
