@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Platform, Image } from "react-native";
+import { StyleSheet, Text, View, Platform, Image, ImageBackground } from "react-native";
 import { GiftedChat, Message } from "react-native-gifted-chat";
 import RelatedQustion from "../../components/RelatedQustion";
 import { chat } from "../../store/chat";
@@ -22,7 +22,11 @@ const ChatHeader = () => (
 
 export default function ChatScreen() {
   return (
-    <>
+    <ImageBackground
+      resizeMode="cover"
+      source={require("../../assets/bg.png")}
+      style={{ height: "100%", width: "100%", backgroundColor: "white" }}
+    >
       <Header />
 
       <View style={styles.container}>
@@ -47,7 +51,7 @@ export default function ChatScreen() {
           )}
         </Observer>
       </View>
-    </>
+    </ImageBackground>
   );
 }
 

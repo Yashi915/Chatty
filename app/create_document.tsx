@@ -1,7 +1,17 @@
 import React, { useState } from "react";
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Button from "../components/native/Button";
 import { modal } from "../store/modal";
+import Header from "../components/Header";
+import { FormModal } from "../components/modal/FormModal";
+import Toast from "react-native-toast-message";
 
 const certificateList = [
   {
@@ -905,9 +915,21 @@ const Accordion = () => {
 
 function CreateDocumentScreen() {
   return (
-    <ScrollView contentContainerStyle={{ paddingVertical: 50 }}>
-      <Accordion />
-    </ScrollView>
+    <>
+      <ImageBackground
+        resizeMode="cover"
+        source={require("../assets/bg.png")}
+        style={{ height: "100%", width: "100%", backgroundColor: "white" }}
+      >
+        <Header />
+        <ScrollView contentContainerStyle={{ paddingVertical: 50 }}>
+          <Accordion />
+        </ScrollView>
+      </ImageBackground>
+
+      <FormModal />
+      <Toast />
+    </>
   );
 }
 

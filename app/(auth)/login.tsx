@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { ImageBackground, StyleSheet, View } from "react-native";
 import Header from "../../components/Header";
 import Text from "../../components/native/Text";
 import TextInput from "../../components/native/TextInput";
@@ -37,41 +37,47 @@ export default function Login() {
 
   return (
     <>
-      <Header />
-      <View style={styles.page}>
-        <View style={styles.authContainer}>
-          <TabHeader tab={tab} setTab={setTab} />
+      <ImageBackground
+        resizeMode="cover"
+        source={require("../../assets/bg.png")}
+        style={{ height: "100%", width: "100%", backgroundColor: "white" }}
+      >
+        <Header />
+        <View style={styles.page}>
+          <View style={styles.authContainer}>
+            <TabHeader tab={tab} setTab={setTab} />
 
-          {tab === "institute" && (
+            {tab === "institute" && (
+              <View>
+                <Text style={styles.headingText}>Insitute Name</Text>
+                <TextInput value={name} onChangeText={(val) => setName(val)} />
+              </View>
+            )}
+
             <View>
-              <Text style={styles.headingText}>Insitute Name</Text>
-              <TextInput value={name} onChangeText={(val) => setName(val)} />
+              <Text style={styles.headingText}>Email Address</Text>
+              <TextInput value={email} onChangeText={(val) => setEmail(val)} />
             </View>
-          )}
 
-          <View>
-            <Text style={styles.headingText}>Email Address</Text>
-            <TextInput value={email} onChangeText={(val) => setEmail(val)} />
-          </View>
+            <View>
+              <Text style={styles.headingText}>Password</Text>
+              <TextInput
+                value={password}
+                onChangeText={(val) => setPassword(val)}
+                secureTextEntry={true}
+              />
+            </View>
 
-          <View>
-            <Text style={styles.headingText}>Password</Text>
-            <TextInput
-              value={password}
-              onChangeText={(val) => setPassword(val)}
-              secureTextEntry={true}
+            <Button
+              title="Login"
+              style={styles.button}
+              onPress={() => {
+                user.login({ email, password, tab, name });
+              }}
             />
           </View>
-
-          <Button
-            title="Login"
-            style={styles.button}
-            onPress={() => {
-              user.login({ email, password, tab, name });
-            }}
-          />
         </View>
-      </View>
+      </ImageBackground>
 
       <Toast />
     </>
@@ -80,19 +86,17 @@ export default function Login() {
 
 const styles = StyleSheet.create({
   page: {
-    flex: 1,
-    backgroundColor: "white",
     justifyContent: "center",
   },
   authContainer: {
     marginLeft: "auto",
     marginRight: 200,
     width: "20%",
-    height: "60%",
 
+    marginTop: "10%",
     padding: 40,
 
-    borderRadius: 20,
+    borderRadius: 8,
 
     shadowColor: "#000",
     shadowOffset: {
@@ -105,6 +109,8 @@ const styles = StyleSheet.create({
     elevation: 5,
 
     gap: 20,
+
+    backgroundColor: "white",
   },
 
   headingText: {
@@ -116,7 +122,7 @@ const styles = StyleSheet.create({
 
   button: {
     height: 40,
-    marginTop: "auto",
+    marginTop: "10%",
   },
 
   tabHeaderContainer: {
