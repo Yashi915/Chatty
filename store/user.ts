@@ -1,4 +1,4 @@
-import { action, makeObservable, observable, runInAction } from "mobx";
+import { action, makeObservable, observable } from "mobx";
 
 import { router } from "expo-router";
 import Toast from "react-native-toast-message";
@@ -23,20 +23,30 @@ class User {
     });
   }
 
-  async login({ email, password, tab }: { email: string; password: string; tab: string }) {
+  async login({
+    email,
+    password,
+    tab,
+    name = "",
+  }: {
+    email: string;
+    password: string;
+    tab: string;
+    name?: string;
+  }) {
     this.loading = true;
 
     if (tab === "admin") {
       if (email === "admin@aph.com" && password === "123456") {
-        Toast.show({
-          type: "info",
-          text1: "Succesfully Login",
-        });
-
         this.name = "Admin";
         this.type = "admin";
         this.isloggedIn = true;
         this.email = email;
+
+        Toast.show({
+          type: "info",
+          text1: "Succesfully Login",
+        });
 
         router.replace("/");
       } else {
@@ -46,7 +56,24 @@ class User {
         });
       }
     } else {
-      router.replace("/(tabs)/");
+      if (email && password) {
+        this.name = name;
+        this.type = "institute";
+        this.isloggedIn = true;
+        this.email = email;
+
+        Toast.show({
+          type: "info",
+          text1: "Succesfully Login",
+        });
+
+        router.replace("/");
+      } else {
+        Toast.show({
+          type: "info",
+          text1: "Please enter valid email and password",
+        });
+      }
     }
 
     this.loading = false;

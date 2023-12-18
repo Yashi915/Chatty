@@ -67,7 +67,7 @@ export default function Login() {
             title="Login"
             style={styles.button}
             onPress={() => {
-              user.login({ email, password, tab });
+              user.login({ email, password, tab, name });
             }}
           />
         </View>
