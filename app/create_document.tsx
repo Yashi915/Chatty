@@ -10,75 +10,75 @@ const certificateList = [
     field: [
       {
         name: "Trust/ Society/ Company",
-        formatname: "org_name",
+        formatName: "org_name",
       },
       {
         name: "name and address of the Applicant",
-        formatname: "name_and_address",
+        formatName: "name_and_address",
       },
       {
         name: "Registration Certicate No.",
-        formatname: "reg_cert_no",
+        formatName: "reg_cert_no",
       },
       {
         name: "Date of Registration",
-        formatname: "date",
+        formatName: "date",
       },
       {
         name: "Registered at",
-        formatname: "registered_at",
+        formatName: "registered_at",
       },
       {
         name: "Registered under the Act",
-        formatname: "registered_under_act",
+        formatName: "registered_under_act",
       },
       {
         name: "Competent Authority",
-        formatname: "competent_authority",
+        formatName: "competent_authority",
       },
       {
         name: "Sl. No.",
-        formatname: "sl_no",
+        formatName: "sl_no",
       },
       {
         name: "name of the Deed Document No",
-        formatname: "name_of_deed",
+        formatName: "name_of_deed",
       },
       {
         name: "Document No.",
-        formatname: "doc_no",
+        formatName: "doc_no",
       },
       {
         name: "Survey No",
-        formatname: "survey_no",
+        formatName: "survey_no",
       },
       {
         name: "Registration No. and Date",
-        formatname: "reg_no_and_date",
+        formatName: "reg_no_and_date",
       },
       {
         name: "Land Area in Acre",
-        formatname: "land_area",
+        formatName: "land_area",
       },
       {
         name: "Letter No.",
-        formatname: "letter_no",
+        formatName: "letter_no",
       },
       {
         name: "Letter dated",
-        formatname: "letter_date",
+        formatName: "letter_date",
       },
       {
         name: "Issued By",
-        formatname: "issued_by",
+        formatName: "issued_by",
       },
       {
         name: "Extent of Land (in acre)",
-        formatname: "extent_of_land",
+        formatName: "extent_of_land",
       },
       {
         name: "Land Classication",
-        formatname: "land_classification",
+        formatName: "land_classification",
       },
     ],
   },
@@ -88,83 +88,83 @@ const certificateList = [
     field: [
       {
         name: "<name and address of the Applicant>",
-        formatname: "text_20kcwd",
+        formatName: "text_20kcwd",
       },
       {
         name: "Institution<name of the Institutions>",
-        formatname: "text_21fjwt",
+        formatName: "text_21fjwt",
       },
       {
         name: "<address>",
-        formatname: "text_22vqxh",
+        formatName: "text_22vqxh",
       },
       {
         name: "<name and address of the Applicant>",
-        formatname: "text_23akth",
+        formatName: "text_23akth",
       },
       {
         name: "Plans approved by",
-        formatname: "text_2hbpu",
+        formatName: "text_2hbpu",
       },
       {
         name: "Approval Number",
-        formatname: "text_3deri",
+        formatName: "text_3deri",
       },
       {
         name: "Date of Approval",
-        formatname: "text_4xqrc",
+        formatName: "text_4xqrc",
       },
       {
         name: "Sl.No.",
-        formatname: "text_5qszp",
+        formatName: "text_5qszp",
       },
       {
         name: "Room No",
-        formatname: "text_6mwnw",
+        formatName: "text_6mwnw",
       },
       {
         name: "Room type (mention Class Room/ Laboratory/ Toilet, etc.)",
-        formatname: "text_7clqm",
+        formatName: "text_7clqm",
       },
       {
         name: "Carpet area (in m2)",
-        formatname: "text_10gjpx",
+        formatName: "text_10gjpx",
       },
       {
         name: "Completion of Flooring",
-        formatname: "text_11pfzd",
+        formatName: "text_11pfzd",
       },
       {
         name: "Completion of Walls and painting",
-        formatname: "text_9krqb",
+        formatName: "text_9krqb",
       },
       {
         name: "Completion of Electrification and lighting",
-        formatname: "text_8nnlv",
+        formatName: "text_8nnlv",
       },
       {
         name: "Certificate approved by",
-        formatname: "text_12wikx",
+        formatName: "text_12wikx",
       },
       {
         name: "Approval Number",
-        formatname: "text_13cbqd",
+        formatName: "text_13cbqd",
       },
       {
         name: "Date of Approval",
-        formatname: "text_14tgwl",
+        formatName: "text_14tgwl",
       },
       {
         name: "Certificate approved by",
-        formatname: "text_15vrur",
+        formatName: "text_15vrur",
       },
       {
         name: "Approval Number",
-        formatname: "text_16ggvf",
+        formatName: "text_16ggvf",
       },
       {
         name: "Date of Approval",
-        formatname: "text_17jwq",
+        formatName: "text_17jwq",
       },
     ],
   },
@@ -181,89 +181,89 @@ const affidavitsList = [
     field: [
       {
         name: " <name>",
-        formatname: "text_1onzw",
+        formatName: "text_1onzw",
       },
       {
         name: " <name of the Trust/ Society/ Company>",
-        formatname: "text_2yagy",
+        formatName: "text_2yagy",
       },
       {
         name: "son/ daughter of",
-        formatname: "text_3savj",
+        formatName: "text_3savj",
       },
       {
         name: "aged",
-        formatname: "text_4ghsf",
+        formatName: "text_4ghsf",
       },
       {
         name: "resident of",
-        formatname: "text_5hxxb",
+        formatName: "text_5hxxb",
       },
       {
         name: " <name and address of Institution>",
-        formatname: "text_6bxqj",
+        formatName: "text_6bxqj",
       },
       {
         name: " <user ID>",
-        formatname: "text_7sell",
+        formatName: "text_7sell",
       },
 
       {
         name: "<name>",
-        formatname: "text_8saud",
+        formatName: "text_8saud",
       },
       {
         name: "<name of the Trust/ Society/ Company>",
-        formatname: "text_9qaco",
+        formatName: "text_9qaco",
       },
       {
         name: "<name>",
-        formatname: "text_10zkpa",
+        formatName: "text_10zkpa",
       },
       {
         name: "<name of the Trust/ Society/ Company>",
-        formatname: "text_11zvob",
+        formatName: "text_11zvob",
       },
       {
         name: "transaction id",
-        formatname: "text_12btim",
+        formatName: "text_12btim",
       },
       {
         name: "  transaction date",
-        formatname: "text_13mxku",
+        formatName: "text_13mxku",
       },
 
       {
         name: " <name of the Person>",
-        formatname: "text_14qyjy",
+        formatName: "text_14qyjy",
       },
       {
         name: "<Address>",
-        formatname: "text_15cudv",
+        formatName: "text_15cudv",
       },
       {
         name: "<Landline No>",
-        formatname: "text_16sqpq",
+        formatName: "text_16sqpq",
       },
       {
         name: "<Mobile No>",
-        formatname: "text_17hjbv",
+        formatName: "text_17hjbv",
       },
       {
         name: " <email id>",
-        formatname: "text_18hipi",
+        formatName: "text_18hipi",
       },
       {
         name: "<name of the place>",
-        formatname: "text_19psvx",
+        formatName: "text_19psvx",
       },
       {
         name: "<date>",
-        formatname: "text_20mufa",
+        formatName: "text_20mufa",
       },
       {
         name: "day/months/year",
-        formatname: "text_21nuar",
+        formatName: "text_21nuar",
       },
     ],
   },
@@ -273,99 +273,99 @@ const affidavitsList = [
     field: [
       {
         name: "<name>",
-        formatname: "text_1ulyu",
+        formatName: "text_1ulyu",
       },
       {
         name: "<name of the Trust/ Society/ Company>",
-        formatname: "text_3bycy",
+        formatName: "text_3bycy",
       },
       {
         name: " son / daughter of",
-        formatname: "text_5peb",
+        formatName: "text_5peb",
       },
       {
         name: "aged",
-        formatname: "text_6kfpb",
+        formatName: "text_6kfpb",
       },
       {
         name: "resident of",
-        formatname: "text_7mcj",
+        formatName: "text_7mcj",
       },
       {
         name: "application dated",
-        formatname: "text_8sngb",
+        formatName: "text_8sngb",
       },
       {
         name: "<name(s)>",
-        formatname: "text_9zcmg",
+        formatName: "text_9zcmg",
       },
       {
         name: "name of the Institution",
-        formatname: "text_10tnha",
+        formatName: "text_10tnha",
       },
       {
         name: "Programmes/ Courses offered",
-        formatname: "text_11xzsc",
+        formatName: "text_11xzsc",
       },
       {
         name: "Built-Up Area",
-        formatname: "text_13wniz",
+        formatName: "text_13wniz",
       },
       {
         name: "Approved by AICTE or Not",
-        formatname: "text_12jldq",
+        formatName: "text_12jldq",
       },
       {
         name: "< name of the Institution>",
-        formatname: "text_14gect",
+        formatName: "text_14gect",
       },
       {
         name: "<name(s)>",
-        formatname: "text_15qmdf",
+        formatName: "text_15qmdf",
       },
       {
         name: "<name(s)>",
-        formatname: "text_16ppgm",
+        formatName: "text_16ppgm",
       },
       {
         name: "<name of the Trust/Society/Company/Technical Institution>",
-        formatname: "text_18ei",
+        formatName: "text_18ei",
       },
       {
         name: "<name of the Trust/Society/Company/Technical Institution>",
-        formatname: "text_20vmg",
+        formatName: "text_20vmg",
       },
       {
         name: "<name of the Trust/Society/Company/Technical Institution>",
-        formatname: "text_21dshe",
+        formatName: "text_21dshe",
       },
       {
         name: "<name of the Trust/Society/Company/Technical Institution>",
-        formatname: "text_22pjpw",
+        formatName: "text_22pjpw",
       },
       {
         name: " <application number>",
-        formatname: "text_23ibzw",
+        formatName: "text_23ibzw",
       },
       {
         name: "<name and address of Institution>",
-        formatname: "text_24ypxv",
+        formatName: "text_24ypxv",
       },
       {
         name: " <application number>",
-        formatname: "text_25sdeh",
+        formatName: "text_25sdeh",
       },
       {
         name: "<name and address of Institution>",
-        formatname: "text_26svwv",
+        formatName: "text_26svwv",
       },
       {
         name: " <name of the place>",
-        formatname: "text_27sgzk",
+        formatName: "text_27sgzk",
       },
       {
         name: " <date>",
-        formatname: "text_28mjhj",
+        formatName: "text_28mjhj",
       },
     ],
   },

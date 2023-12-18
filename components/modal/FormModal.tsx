@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { View, Text, Modal, StyleSheet, ScrollView } from "react-native";
 import Button from "../native/Button";
 import { Entypo } from "@expo/vector-icons";
@@ -44,12 +44,6 @@ export const FormModal = () => {
     });
   }
 
-  const formatNameObject: any = {};
-  modal?.formData?.field.forEach((item: any) => {
-    formatNameObject[item?.formatName] = "";
-  });
-
-  console.log("for", formatNameObject);
   return (
     <Observer>
       {() => (
@@ -63,9 +57,10 @@ export const FormModal = () => {
                   <Entypo onPress={() => modal.closeModal()} name="cross" size={32} color="black" />
                 </View>
 
+                {console.log("for", modal?.formatNameObject)}
                 <Formik
                   innerRef={ref}
-                  initialValues={formatNameObject}
+                  initialValues={modal?.formatNameObject}
                   onSubmit={(values, formikActions) => {
                     fillForm(values);
                   }}

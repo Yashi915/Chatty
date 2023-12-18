@@ -7,6 +7,7 @@ class Modal {
   modalType: ModalType = "ADVOCATE";
 
   formData: any = null;
+  formatNameObject: any = null;
 
   constructor() {
     makeObservable(this, {
@@ -27,6 +28,13 @@ class Modal {
   }
 
   setFormData(formData: any) {
+    let tmp: any = {};
+    formData?.field.forEach((item: any) => {
+      console.log("item", item);
+      tmp[`${item?.formatName}`] = "";
+    });
+    console.log("for", tmp);
+    this.formatNameObject = tmp;
     this.formData = formData;
   }
 }
