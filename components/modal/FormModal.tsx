@@ -57,7 +57,6 @@ export const FormModal = () => {
                   <Entypo onPress={() => modal.closeModal()} name="cross" size={32} color="black" />
                 </View>
 
-                {console.log("for", modal?.formatNameObject)}
                 <Formik
                   innerRef={ref}
                   initialValues={modal?.formatNameObject}
