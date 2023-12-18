@@ -1,5 +1,5 @@
-import { useWindowDimensions } from "react-native";
+import { Dimensions } from "react-native";
 
-const { fontScale } = useWindowDimensions();
+const fontScale = Dimensions.get("screen").fontScale;
 
 export const setFontSize = (fontSize: number) => Math.round(fontScale * fontSize);
