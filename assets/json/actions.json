@@ -1,20 +1,141 @@
 [
-  {
-    "id": 1,
-    "options": [
-      {
-        "name": "Display Option on Selected",
-        "response": null,
-        "action": 2
+  
+    {
+      "id": 1,
+      "options": [
+        {
+          "name": "Affidavit",
+          "response": null,
+          "action": 2
+        },
+        {
+          "name": "Certificate",
+          "response": null,
+          "action": 3
+        },
+        {
+          "name": "Formats",
+          "response": null,
+          "action": 4
+        }
+      ]
       },
+    
+  {
+    "id": 2,
+    "options": [
+    
       {
-        "name": "Display Text",
-        "response": 1,
+        "name": "Format for Forgotten Password",
+        "response": 0,
         "action": null
       },
       {
-        "name": "Related Question",
-        "response": 2,
+        "name": "Format for the applications submitted under Chapter I/ II/ IV except Closure of the Institution",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Format for the establishment of a new Technical Institution while submitting the Security Deposit",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Format for the Progressive/ Complete Closure of the Institution",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Format for Category I/ II Universities notified by the UGC for the compliance of AICTE norms",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": " Format for the release of Security Deposit",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Format of the Joint Affidavit by the Lessor and Lessee for transfer of private Property/ Building under the Transfer of Property Act, 1882",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Format for Additional Course(s) / Increase in Intake",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Format for Change in the name of the Bank",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Format for Change in the name of the Trust/ Society/ Company",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Format for Collaboration and Twinning Programme between Foreign University/ Institution OR Institute of National Importance /Eminence of India and AICTE Approved Institution",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Format for conducting Academic Course(s) of other Regulatory Body",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Format for conducting Open and Distance Learning & Online Courses",
+        "response": 0,
+        "action": null
+      }
+  
+  ]
+  },
+      [
+        {
+          "id":3,
+          "options": [
+      {
+        "name": "Certificate of an Advocate",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Certificate of an Architect registered with Council of Architecture",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Certificate of the Bank Manager where the Applicant has a Bank Account",
+        "response": 0,
+        "action": null
+      }
+    
+    ]
+  },
+  {
+    "id":4,
+    "options": [
+      {
+        "name": "No Objection Certificate from State Government/ UT",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "No Objection Certificate from affiliating University/ Board",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "Resolution of the Trust/ Society/ Company",
+        "response": 0,
+        "action": null
+      },
+      {
+        "name": "MoU to be signed between the Institution and Skill Knowledge Providers/Trainers",
+        "response": 0,
         "action": null
       }
     ]
@@ -34,4 +155,5 @@
       }
     ]
   }
+]
 ]
