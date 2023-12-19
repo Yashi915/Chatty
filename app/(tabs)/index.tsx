@@ -4,6 +4,7 @@ import RelatedQustion from "../../components/RelatedQustion";
 import { chat } from "../../store/chat";
 import { Observer } from "mobx-react-lite";
 import Header from "../../components/Header";
+import Options from "../../components/Options";
 
 const ChatHeader = () => (
   <View style={styles.header}>
@@ -40,6 +41,10 @@ export default function ChatScreen() {
               renderMessage={(props) => {
                 if (props?.currentMessage?.messageType === "Related Question") {
                   return <RelatedQustion {...props} />;
+                }
+
+                if (props?.currentMessage?.messageType === "Options") {
+                  return <Options {...props} />;
                 }
 
                 return <Message {...props} />;

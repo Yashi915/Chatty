@@ -1,6 +1,9 @@
 import Faq from "../assets/json/faq.json";
+import chatResponse from "../assets/json/responses.json";
+import chatAction from "../assets/json/actions.json";
 import { action, makeObservable, observable } from "mobx";
 import { NlpManager } from "node-nlp-rn";
+import { user } from "./user";
 
 const manager = new NlpManager({ languages: ["en"], forceNER: true });
 
@@ -10,6 +13,11 @@ const ChatUser = {
   avatar: "https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1.jpg",
 };
 
+const User = {
+  _id: 1,
+  name: user.name,
+};
+
 class Chat {
   messages = [];
 
@@ -17,9 +25,82 @@ class Chat {
     makeObservable(this, {
       messages: observable,
       send: action,
+      addAction: action,
+      addResponse: action,
     });
 
     this.trainManager();
+    this.addAction(1);
+  }
+
+  addUserMessage(message: string) {
+    let tmpMessage: any = this.messages;
+
+    tmpMessage = [
+      {
+        _id: Math.random() * 1000000,
+        text: message,
+        createdAt: new Date(),
+        user: User,
+      },
+      ...tmpMessage,
+    ];
+    this.messages = tmpMessage;
+  }
+
+  addAction(id: any) {
+    for (let i = 0; i < chatAction?.length; i++) {
+      if (id === chatAction[i]?.id) {
+        let tmpMessage: any = this.messages;
+
+        tmpMessage = [
+          {
+            _id: Math.random() * 1000000,
+            text: "Options",
+            messageType: "Options",
+            options: chatAction[i]?.options,
+            createdAt: new Date(),
+            user: ChatUser,
+          },
+          ...tmpMessage,
+        ];
+        this.messages = tmpMessage;
+      }
+    }
+  }
+
+  addResponse(id: any) {
+    for (let i = 0; i < chatResponse?.length; i++) {
+      if (id === chatResponse[i]?.id) {
+        let tmpMessage: any = this.messages;
+
+        console.log("res", chatResponse[i]?.messageType);
+
+        if (chatResponse[i]?.messageType === "text") {
+          tmpMessage = [
+            {
+              _id: Math.random() * 1000000,
+              text: chatResponse[i]?.text,
+              createdAt: new Date(),
+              user: ChatUser,
+            },
+            ...tmpMessage,
+          ];
+        } else if (chatResponse[i]?.messageType === "Related Question") {
+          tmpMessage = [
+            {
+              _id: Math.random() * 1000000,
+              messageType: chatResponse[i]?.messageType,
+              relatedQuestionAnswer: chatResponse[i]?.relatedQuestionAnswer,
+              createdAt: new Date(),
+              user: ChatUser,
+            },
+            ...tmpMessage,
+          ];
+        }
+        this.messages = tmpMessage;
+      }
+    }
   }
 
   trainManager = async () => {

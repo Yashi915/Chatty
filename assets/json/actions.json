@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "options": [
+      {
+        "name": "Display Option on Selected",
+        "response": null,
+        "action": 2
+      },
+      {
+        "name": "Display Text",
+        "response": 1,
+        "action": null
+      },
+      {
+        "name": "Related Question",
+        "response": 2,
+        "action": null
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "options": [
+      {
+        "name": "Option one",
+        "response": null,
+        "action": null
+      },
+      {
+        "name": "Option two",
+        "response": null,
+        "action": null
+      }
+    ]
+  }
+]

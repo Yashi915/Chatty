@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "messageType": "text",
+    "text": "hello this is the response"
+  },
+  {
+    "id": 2,
+    "messageType": "Related Question",
+    "relatedQuestionAnswer": [
+      {
+        "question": "Can a New Institute apply for UG and PG in Engineering and Technology.",
+        "answer": "No, Institute can opt for UG program and for PG Courses Institute shall require NBA."
+      },
+      {
+        "question": "How much land is required for Establishment of New Engineering College with UG program.",
+        "answer": "There is no such minimum land requirement. Provided Institute should have required built up area and land as per FSI/FAR as applicable (Rural / Urban/ Mega/Metro Cities)."
+      }
+    ]
+  }
+]
