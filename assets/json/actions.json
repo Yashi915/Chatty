@@ -1,34 +1,31 @@
 [
-  
-    {
-      "id": 1,
-      "options": [
-        {
-          "name": "Affidavit",
-          "response": null,
-          "action": 2
-        },
-        {
-          "name": "Certificate",
-          "response": null,
-          "action": 3
-        },
-        {
-          "name": "Formats",
-          "response": null,
-          "action": 4
-        }
-      ]
+  {
+    "id": 1,
+    "options": [
+      {
+        "name": "Affidavit",
+        "response": null,
+        "action": 2
       },
-    
+      {
+        "name": "Certificate",
+        "response": null,
+        "action": 3
+      },
+      {
+        "name": "Formats",
+        "response": null,
+        "action": 4
+      }
+    ]
+  },
   {
     "id": 2,
     "options": [
-    
       {
         "name": "Format for Forgotten Password",
-        "response": 0,
-        "action": null
+        "response": null,
+        "action": 5
       },
       {
         "name": "Format for the applications submitted under Chapter I/ II/ IV except Closure of the Institution",
@@ -90,13 +87,11 @@
         "response": 0,
         "action": null
       }
-  
-  ]
+    ]
   },
-      [
-        {
-          "id":3,
-          "options": [
+  {
+    "id": 3,
+    "options": [
       {
         "name": "Certificate of an Advocate",
         "response": 0,
@@ -112,11 +107,10 @@
         "response": 0,
         "action": null
       }
-    
     ]
   },
   {
-    "id":4,
+    "id": 4,
     "options": [
       {
         "name": "No Objection Certificate from State Government/ UT",
@@ -141,19 +135,13 @@
     ]
   },
   {
-    "id": 2,
+    "id": 5,
     "options": [
       {
-        "name": "Option one",
-        "response": null,
-        "action": null
-      },
-      {
-        "name": "Option two",
-        "response": null,
+        "name": "No Objection Certificate from State Government/ UT",
+        "response": 0,
         "action": null
       }
     ]
   }
-]
 ]

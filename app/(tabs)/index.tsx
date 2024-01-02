@@ -7,7 +7,9 @@ import Header from "../../components/Header";
 import Options from "../../components/Options";
 
 const ChatHeader = () => (
+  
   <View style={styles.header}>
+ 
     <Image
       style={{ height: 40, width: 40, borderRadius: 20 }}
       source={{
@@ -16,19 +18,19 @@ const ChatHeader = () => (
     />
     <View>
       <Text style={styles.headingText}>APH chat</Text>
-      <Text style={styles.subHeadingText}>A few minutes</Text>
+      <Text style={styles.subHeadingText}>Online Now</Text>
     </View>
   </View>
+  
 );
 
 export default function ChatScreen() {
   return (
-    <ImageBackground
-      resizeMode="cover"
-      source={require("../../assets/bg.png")}
-      style={{ height: "100%", width: "100%", backgroundColor: "white" }}
-    >
+   <view>
       <Header />
+      <view>
+              
+   </view>
 
       <View style={styles.container}>
         <ChatHeader />
@@ -55,15 +57,19 @@ export default function ChatScreen() {
             />
           )}
         </Observer>
+        
       </View>
-    </ImageBackground>
+      
+    </view>
+  
   );
 }
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#3047EC",
-    padding: 20,
+    backgroundColor: "#22597D",
+    
+    padding: 12,
     gap: 30,
     ...Platform.select({
       android: {
@@ -89,11 +95,11 @@ const styles = StyleSheet.create({
   container: {
     ...Platform.select({
       web: {
-        height: 723,
-        width: 450,
+        height: 640,
+        width: 1520,
         alignSelf: "center",
         marginVertical: "auto",
-        borderRadius: 18,
+        // borderRadius: 18,
         overflow: "hidden",
         shadowColor: "#000000",
         shadowOffset: {
@@ -109,6 +115,8 @@ const styles = StyleSheet.create({
       },
     }),
     backgroundColor: "white",
+    // marginLeft:387,
+    // marginTop:-722,
   },
   title: {
     fontSize: 20,

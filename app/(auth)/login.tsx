@@ -1,5 +1,5 @@
-import { ImageBackground, StyleSheet, View } from "react-native";
-import Header from "../../components/Header";
+import { ImageBackground, StyleSheet, View,Image  } from "react-native";
+import Header from "../../components/HeaderLogin";
 import Text from "../../components/native/Text";
 import TextInput from "../../components/native/TextInput";
 import Button from "../../components/native/Button";
@@ -11,11 +11,12 @@ import Toast from "react-native-toast-message";
 const TabHeader = ({ tab, setTab }: any) => {
   return (
     <View style={styles.tabHeaderContainer}>
+       
       <Text
         onPress={() => setTab("institute")}
         style={[styles.tabText, tab === "institute" && styles.enabledTabText]}
       >
-        Institute/Stackholder
+        Institute/Stakeholder
       </Text>
 
       <Text
@@ -24,41 +25,58 @@ const TabHeader = ({ tab, setTab }: any) => {
       >
         Admin
       </Text>
+   
+       
     </View>
   );
 };
 
 export default function Login() {
   const [tab, setTab] = useState("institute");
-
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
+  const [showLogin, setShowLogin] = useState("login");
+
   return (
     <>
-      <ImageBackground
-        resizeMode="cover"
-        source={require("../../assets/bg.png")}
+      <view
+       
         style={{ height: "100%", width: "100%", backgroundColor: "white" }}
       >
+       <ImageBackground
+       resizeMode="cover"
+       source={require("../../assets/back.png")}
+       style={{height:"100%",width:"100%",backgroundColor:"white"}}
+       >
         <Header />
         <View style={styles.page}>
           <View style={styles.authContainer}>
-            <TabHeader tab={tab} setTab={setTab} />
+            {showLogin === "login" ? (
+              <TabHeader tab={tab} setTab={setTab} />
+            ) : (
+              <Text style={styles.tabText}>Create Stakeholder/Institute Account</Text>
+            )}
 
-            {tab === "institute" && (
+            {tab === "institute" && showLogin === "signup" && (
               <View>
                 <Text style={styles.headingText}>Insitute Name</Text>
                 <TextInput value={name} onChangeText={(val) => setName(val)} />
               </View>
             )}
-
+{tab === "institute" && showLogin === "login" && (
             <View>
-              <Text style={styles.headingText}>Email Address</Text>
+              <Text style={styles.headingText}>Institute I'D</Text>
               <TextInput value={email} onChangeText={(val) => setEmail(val)} />
             </View>
-
+ ) }
+ {tab === "admin" && showLogin === "login" && (
+ <View>
+              <Text style={styles.headingText}>Admin I'D</Text>
+              <TextInput value={email} onChangeText={(val) => setEmail(val)} />
+            </View>
+  )}
             <View>
               <Text style={styles.headingText}>Password</Text>
               <TextInput
@@ -69,15 +87,31 @@ export default function Login() {
             </View>
 
             <Button
-              title="Login"
+              title={showLogin === "login" ? "Login" : "SignUp"}
               style={styles.button}
+              
               onPress={() => {
-                user.login({ email, password, tab, name });
+                if (showLogin === "login") user.login({ email, password, tab, name });
+                else user.signup({ email, password, name });
               }}
             />
+
+            <Text style={styles.dontText}>
+              {showLogin === "login" ? "Don't" : "Already"} have a account?{" "}
+              <Text
+                onPress={() => {
+                  if (showLogin === "login") setShowLogin("signup");
+                  else setShowLogin("login");
+                }}
+                style={styles.buttonText}
+              >
+                {showLogin === "login" ? "Create One" : "Login"}
+              </Text>
+            </Text>
           </View>
         </View>
-      </ImageBackground>
+        </ImageBackground>
+      </view>
 
       <Toast />
     </>
@@ -89,9 +123,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   authContainer: {
-    marginLeft: "auto",
-    marginRight: 200,
-    width: "20%",
+    marginLeft: 0,
+    // marginRight: 800,
+    width: "27%",
 
     marginTop: "10%",
     padding: 40,
@@ -109,39 +143,55 @@ const styles = StyleSheet.create({
     elevation: 5,
 
     gap: 20,
-
+  
     backgroundColor: "white",
+    marginLeft: "234px",
+    marginTop: "71px",
   },
 
   headingText: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: "bold",
     marginBottom: 10,
     letterSpacing: 0.2,
+    // color:"white"
   },
 
   button: {
     height: 40,
     marginTop: "10%",
+    backgroundColor:"#fca311",
+    color:"black"
   },
 
   tabHeaderContainer: {
     flexDirection: "row",
+    
   },
 
   tabText: {
     flex: 1,
     textAlign: "center",
     marginBottom: 20,
-    fontSize: 14,
+    fontSize: 18,
     fontWeight: "bold",
-
     height: 30,
     marginHorizontal: 20,
   },
 
   enabledTabText: {
     borderBottomWidth: 2,
-    borderColor: Colors.primary,
+    borderColor: "#FCA311",
+  },
+
+  dontText: {
+    color: "black",
+    fontSize: 16,
+    letterSpacing: 0.02,
+    textAlign: "center",
+  },
+
+  buttonText: {
+    color: "black",
   },
 });

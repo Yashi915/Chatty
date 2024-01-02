@@ -30,10 +30,10 @@ const Header = () => {
   return (
     <Observer>
       {() => (
+        <View style={{ width: 100, height: 100 }}>
+          <Image source={require("../assets/logo.png")} style={{ width: 100, height: 100 }} />
         <View style={styles.header}>
           <View style={styles.contentContainer}>
-            <Image source={require("../assets/logo.png")} style={{ width: 100, height: 100 }} />
-            
             {user?.isloggedIn &&
               content.map((item, i) => (
                 <Text
@@ -76,6 +76,7 @@ const Header = () => {
               </>
             )}
           </View>
+        </View>
         </View>
       )}
     </Observer>

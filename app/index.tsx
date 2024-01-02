@@ -15,7 +15,8 @@ export default function Init() {
             )
           ) : (
             <Redirect href={"/(auth)/login"} />
-          )}
+          ) }
+         
         </>
       )}
     </Observer>
